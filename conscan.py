@@ -1,10 +1,15 @@
 #!/usr/bin/python
 
 ## import modules
-import argparse
-import httplib
-import sys
-from modules import concrete
+try:
+	import argparse
+	import httplib
+	import sys
+	from modules import concrete
+
+except Exception, error:
+	print error
+	sys.exit(1)
 
 ## Banner
 def banner():
