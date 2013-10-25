@@ -62,8 +62,8 @@ def arg_parser():
 		temp = target.split("/")
 		target = temp[0]
 
-		length = len(temp)		
-		length = length 
+#		length = len(temp)		
+#		length = length 
 
 		temp = temp[1:]
 
