@@ -29,12 +29,12 @@ def detect(target, dir, ssl):
                 version = ver[3].split(" ")
 
 		if version[0] == 'concrete5':
-            		if version.count(1) == 0:
-				print "Found", version[0],  "installation"
-				break
-			else:
+            		if version.count(1) == 2:
 				print "Found", version[0], "at version", version[2], "via generator tag"
                     		cmsvulns.vulncheck(version[2])
+				break
+			else:
+				print "Found", version[0],  "installation"
 		    		break
 		else:
 		    print "Not running concrete5!"
