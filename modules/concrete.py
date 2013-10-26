@@ -29,7 +29,7 @@ def detect(target, dir, ssl):
                 version = ver[3].split(" ")
 
 		if version[0] == 'concrete5':
-            		if version.count(1) == 2:
+            		if len(version) == 3:
 				print "Found", version[0], "at version", version[2], "via generator tag"
                     		cmsvulns.vulncheck(version[2])
 				break
