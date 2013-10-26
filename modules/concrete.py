@@ -28,10 +28,14 @@ def detect(target, dir, ssl):
                 ver = line.split("\"")
                 version = ver[3].split(" ")
 
-                if version[0] == 'concrete5':
-                    print "Found", version[0], "at version", version[2], "via generator tag"
-                    cmsvulns.vulncheck(version[2])
-		    break
+		if version[0] == 'concrete5':
+            		if version.count(1) == 0:
+				print "Found", version[0],  "installation"
+				break
+			else:
+				print "Found", version[0], "at version", version[2], "via generator tag"
+                    		cmsvulns.vulncheck(version[2])
+		    		break
 		else:
 		    print "Not running concrete5!"
 		    sys.exit(0)
@@ -41,10 +45,12 @@ def detect(target, dir, ssl):
 		print "concrete5 installation not detected"
 		sys.exit(0)
 
-    except Exception, error:
-        print error
-        sys.exit(1)
+    except Exception, IndexError:
+	pass
 
+    except Exception, error:
+	print error
+	sys.exit(1)
 
 
 def enumerate(target, dir, ssl):
