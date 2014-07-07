@@ -3,7 +3,6 @@
 ## import modules
 try:
 	import argparse
-	#import httplib
 	import sys
 	from modules import concrete
 	from modules import login
@@ -24,7 +23,7 @@ def banner():
 || concrete5 blackbox vulnerability scanner              	          ||
 ||                                                                        ||
 || VERSION                                                                ||
-|| 1.x                                                                    ||
+|| 1.1                                                                    ||
 ||                                                                        ||
 || AUTHOR                                                                 ||
 || TheXero | thexero@nullsecurity.net                                     ||
