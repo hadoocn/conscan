@@ -3,9 +3,10 @@
 ## import modules
 try:
 	import argparse
-	import httplib
+	#import httplib
 	import sys
 	from modules import concrete
+	from modules import login
 
 except Exception, error:
 	print error
@@ -17,10 +18,13 @@ def banner():
 //========================================================================\\\\
 ||                                                                        ||
 || TITLE                                                                  ||
-|| Concrete CMS blackbox vulnerability scanner              	          ||
+|| conscan.py                                                             ||
+||                                                                        ||
+|| DESCRIPTION                                                            ||
+|| concrete5 blackbox vulnerability scanner              	          ||
 ||                                                                        ||
 || VERSION                                                                ||
-|| 0.5                                                                    ||
+|| 1.x                                                                    ||
 ||                                                                        ||
 || AUTHOR                                                                 ||
 || TheXero | thexero@nullsecurity.net                                     ||
@@ -38,6 +42,8 @@ def arg_parser():
 
 	parser.add_argument('-t', dest='target', help='Target IP / Domain', required='yes')
 	parser.add_argument('-e', action='store_true', help='Perform enumeration')
+	parser.add_argument('-u', dest='username', help='Username to login with')
+	parser.add_argument('-p', dest='wordlist', help='Path to wordlist')
 
 	if len(sys.argv) == 1:
 		parser.print_help()
@@ -62,15 +68,11 @@ def arg_parser():
 		temp = target.split("/")
 		target = temp[0]
 
-#		length = len(temp)		
-#		length = length 
-
 		temp = temp[1:]
 
-		dir = '/'
+		dir = ''
 		for item in temp:
 			dir = dir + item + '/' 
-
 	else:
 		dir = '/'	
 
@@ -78,11 +80,24 @@ def arg_parser():
         	enumerate = True
 	else:
         	enumerate = False
+	
+	bruteforce = False	
+	if args.username:
+		if args.wordlist:
+			username = args.username
+			wordlist = args.wordlist
+			bruteforce = True
+		else:
+			print "Path to wordlist needed to perform a bruteforce\n"
+			sys.exit(1)		
 
 	concrete.detect(target, dir, ssl)
-	
 	if enumerate == True:
 		concrete.enumerate(target, dir, ssl)
+	if bruteforce == True:
+		login.brutelogin(target, dir, ssl, username, wordlist)
+	
+		
 
 
 ## Program startup

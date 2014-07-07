@@ -17,7 +17,7 @@ def vulncheck(version):
 			if vers >= version:
 				for vulnerability in ver.iter('vulnerability'):
 					for title in vulnerability:
-						print bold + '\n' + title.text + normal
+						print bold + '\n [+] ' + title.text + normal
 						break
 
 					for references in vulnerability.iter('references'):
