@@ -8,6 +8,7 @@
 				<url>http://www.exploit-db.com/exploits/31735/</url>
 			</references>
 		</vulnerability>
+<<<<<<< HEAD
 		<vulnerability>
 			<title>Multiple XSS</title>
 			<references>
@@ -15,6 +16,14 @@
 			</references>
 		</vulnerability>
 
+=======
+		<vulneraibility>
+			<title>Multiple XSS</title>
+			<references>
+				<url>http://osandamalith.wordpress.com/2014/07/18/concrete-5-6-2-1-multiple-xss/</url>
+			</references>
+		</vulnerability>
+>>>>>>> 39d192fd0aaad254ff93f2bf75086cf45c8598fb
 	</concrete>
 
 	<concrete version="5.6.1.2">
