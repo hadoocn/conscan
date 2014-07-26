@@ -20,7 +20,6 @@ except Exception, error:
 	print error
 	sys.exit(1)
 
-
 ## Module used to print the banner
 def banner():
 
@@ -44,7 +43,6 @@ def banner():
    ||                                                                        ||
    \\\\========================================================================//
    """
-
 
 ## Module to sort out the program arguments
 def arg_parser():
@@ -113,7 +111,6 @@ def arg_parser():
 			sys.exit(1)		
 
 	return target, dir, ssl, enumerate, bruteforce, username, wordlist, threads
-
 
 ## Program startup
 if __name__ == '__main__':

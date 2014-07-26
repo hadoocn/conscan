@@ -69,7 +69,6 @@ def detect(target, dir, ssl):
 	print error
 	sys.exit(1)
 
-
 ## The concrete5 enumerate module
 def enumerate(target, dir, ssl):
 
